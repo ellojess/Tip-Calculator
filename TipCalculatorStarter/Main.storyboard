@@ -17,20 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uae-ci-apE">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uae-ci-apE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-4l-0Yo">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-4l-0Yo">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bwb-4l-0Yo" firstAttribute="top" secondItem="uae-ci-apE" secondAttribute="top" constant="20" symbolic="YES" id="c6U-O3-ymp"/>
+                                    <constraint firstAttribute="trailing" secondItem="bwb-4l-0Yo" secondAttribute="trailing" id="gMr-Fy-T12"/>
+                                    <constraint firstItem="bwb-4l-0Yo" firstAttribute="leading" secondItem="uae-ci-apE" secondAttribute="leading" constant="20" symbolic="YES" id="sfz-sv-q4e"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="tcOffWhite"/>
+                        <constraints>
+                            <constraint firstItem="bwb-4l-0Yo" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="LEh-tj-G0B"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
