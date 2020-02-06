@@ -19,7 +19,26 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uae-ci-apE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Calculator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwC-b0-aWO">
+                                        <rect key="frame" x="24" y="0.0" width="157" height="85"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" name="tcCharcoal"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JGv-rt-rGm">
+                                        <rect key="frame" x="302" y="27" width="51" height="31"/>
+                                        <color key="onTintColor" name="tcSeafoamGreen"/>
+                                    </switch>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bwC-b0-aWO" firstAttribute="leading" secondItem="uae-ci-apE" secondAttribute="leading" constant="24" id="NQq-te-cuJ"/>
+                                    <constraint firstItem="JGv-rt-rGm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bwC-b0-aWO" secondAttribute="trailing" constant="20" id="Q0P-ez-GBJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="JGv-rt-rGm" secondAttribute="trailing" constant="24" id="VvZ-63-cam"/>
+                                    <constraint firstAttribute="bottom" secondItem="bwC-b0-aWO" secondAttribute="bottom" id="aLg-ln-bne"/>
+                                    <constraint firstItem="JGv-rt-rGm" firstAttribute="centerY" secondItem="bwC-b0-aWO" secondAttribute="centerY" id="i0H-2e-j8W"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="906-Ot-2ZY">
                                 <rect key="frame" x="15" y="109" width="345" height="213"/>
@@ -51,6 +70,7 @@
                             <constraint firstItem="LFX-sL-9Zi" firstAttribute="top" secondItem="bTU-uH-sUO" secondAttribute="bottom" constant="24" id="Wxt-uL-D7R"/>
                             <constraint firstItem="uae-ci-apE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aS3-ls-2nf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bTU-uH-sUO" secondAttribute="trailing" constant="15" id="c0M-Zt-fOr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="bwC-b0-aWO" secondAttribute="top" id="jWf-b0-g27"/>
                             <constraint firstItem="906-Ot-2ZY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="rYG-X0-emr"/>
                             <constraint firstItem="uae-ci-apE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wmC-1Z-HFR"/>
                             <constraint firstItem="906-Ot-2ZY" firstAttribute="top" secondItem="uae-ci-apE" secondAttribute="bottom" constant="24" id="x5Q-vd-Yo3"/>
@@ -65,11 +85,17 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="tcCharcoal">
+            <color red="0.28999999165534973" green="0.28999999165534973" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="tcDarkBlue">
             <color red="0.16899999976158142" green="0.17599999904632568" blue="0.36100000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tcOffWhite">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcSeafoamGreen">
+            <color red="0.34900000691413879" green="0.85500001907348633" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
