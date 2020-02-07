@@ -15,6 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var themeSwitch: UISwitch!
+
+    @IBOutlet weak var inputCardView: UIView!
+    
+    @IBOutlet weak var billAmountTextField: UITextField!
+    
+    @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -26,6 +33,10 @@ class ViewController: UIViewController {
         } else {
             print("switch toggled off")
         }
+    }
+    
+    @IBAction func tipPercentChanged(_ sender: Any) {
+        
     }
     
     
