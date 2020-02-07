@@ -96,7 +96,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="tcDarkBlue"/>
                                 <constraints>
                                     <constraint firstItem="m71-hQ-5tr" firstAttribute="centerY" secondItem="906-Ot-2ZY" secondAttribute="centerY" id="388-L7-AIn"/>
                                     <constraint firstAttribute="trailing" secondItem="m71-hQ-5tr" secondAttribute="trailing" constant="22" id="Tah-6W-V4R"/>
