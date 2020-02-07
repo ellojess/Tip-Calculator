@@ -10,17 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Input View
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var themeSwitch: UISwitch!
-
     @IBOutlet weak var inputCardView: UIView!
-    
     @IBOutlet weak var billAmountTextField: UITextField!
-    
     @IBOutlet weak var tipPercentSegmentedControl: UISegmentedControl!
+    
+    // Output View
+    
     
     // MARK: - View Lifecycle
     
