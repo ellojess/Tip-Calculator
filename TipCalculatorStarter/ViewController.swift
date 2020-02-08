@@ -32,7 +32,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //         set calculateButtonAction to billAmountTextField object to a new closure
+        billAmountTextField.calculateButtonAction = {
+            self.calculate()
+        }
     }
+    
     @IBAction func themeToggled(_ sender: UISwitch) {
         if sender.isOn {
             print("switch toggled on")
@@ -49,6 +54,40 @@ class ViewController: UIViewController {
         print("reset button tapped")
     }
     
-    
+    // helper function to calculate logic for tip and bill amounts
+    func calculate() {
+        billAmountTextField.calculateButtonAction = {
+            // dismiss keyboard if it's displayed
+            if self.billAmountTextField.isFirstResponder {
+                self.billAmountTextField.resignFirstResponder()
+            }
+            
+            // get bill amount from textfield / user input -- execute within closure
+            guard let billAmountText = self.billAmountTextField.text,
+                let billAmount = Double(billAmountText) else {
+                    return
+            }
+            
+            //round value to nearest two decimal places
+            let roundedBillAmount = (100 * billAmount).rounded() / 100
+            
+            // calculate and sanitize the tip amount
+            let tipPercent = 0.15
+            let tipAmount = roundedBillAmount * tipPercent
+            let roundedTipAmount = (100 * tipAmount).rounded() / 100
+            
+            // calculate total amount
+            let totalAmount = roundedBillAmount + roundedTipAmount
+            
+            //            print("Bill Amount: \(roundedBillAmount)")
+            //            print("Tip Amount: \(roundedTipAmount)")
+            //            print("Total Amount: \(totalAmount)")
+            
+            // Update UI values
+            self.billAmountTextField.text = String(format: "%.2f", roundedBillAmount)
+            self.tipAmountLabel.text = String(format: "%.2f", roundedTipAmount)
+            self.totalAmountLabel.text = String(format: "%.2f", totalAmount)
+        }
+    }
 }
 
