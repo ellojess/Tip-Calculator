@@ -32,7 +32,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //         set calculateButtonAction to billAmountTextField object to a new closure
+        
+        setupViews()
+        
+        // set calculateButtonAction to billAmountTextField object to a new closure
         billAmountTextField.calculateButtonAction = {
             self.calculate()
         }
@@ -107,6 +110,41 @@ class ViewController: UIViewController {
         tipPercentSegmentedControl.selectedSegmentIndex = 0
         tipAmountLabel.text = "$0.00"
         totalAmountLabel.text = "$0.00"
+    }
+    
+    // helper function that initially configures each view's respective layer
+    func setupViews() {
+        
+        // add shadow by configuring Header View's layser
+        headerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        headerView.layer.shadowOpacity = 0.05
+        headerView.layer.shadowColor = UIColor.black.cgColor
+        headerView.layer.shadowRadius = 35
+        
+        // round corners of input card
+        inputCardView.layer.cornerRadius = 8
+        // masksToBounds prevent view's content from appearing outside of our rounded corner's boundary.
+        inputCardView.layer.masksToBounds = true
+        
+        // round corners of output card
+        outputCardView.layer.cornerRadius = 8
+        outputCardView.layer.masksToBounds = true
+        // set output card border
+        outputCardView.layer.borderWidth = 1
+        outputCardView.layer.borderColor = UIColor.tcHotPink.cgColor
+        
+        // set border for percent segments
+        tipPercentSegmentedControl.layer.borderWidth = 1
+        tipPercentSegmentedControl.layer.borderColor = UIColor.tcHotPink.cgColor
+        
+        // round corners of reset button
+        resetButton.layer.cornerRadius = 8
+        resetButton.layer.masksToBounds = true
+    }
+    
+    // helper function to contain theme switching code
+    func setTheme(isDark: Bool) {
+
     }
     
 }
