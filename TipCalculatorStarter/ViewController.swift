@@ -46,7 +46,8 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func tipPercentChanged(_ sender: Any) {
+    @IBAction func tipPercentChanged(_ sender: UISegmentedControl) {
+        calculate()
     }
     
     
@@ -71,17 +72,25 @@ class ViewController: UIViewController {
             //round value to nearest two decimal places
             let roundedBillAmount = (100 * billAmount).rounded() / 100
             
+            // use correct tip percent of the UISegmentedControl
+            let tipPercent: Double
+            switch self.tipPercentSegmentedControl.selectedSegmentIndex {
+            case 0:
+                tipPercent = 0.15
+            case 1:
+                tipPercent = 0.18
+            case 2:
+                tipPercent = 0.20
+            default:
+                preconditionFailure("Unexpected index.")
+            }
+            
             // calculate and sanitize the tip amount
-            let tipPercent = 0.15
             let tipAmount = roundedBillAmount * tipPercent
             let roundedTipAmount = (100 * tipAmount).rounded() / 100
             
             // calculate total amount
             let totalAmount = roundedBillAmount + roundedTipAmount
-            
-            //            print("Bill Amount: \(roundedBillAmount)")
-            //            print("Tip Amount: \(roundedTipAmount)")
-            //            print("Total Amount: \(totalAmount)")
             
             // Update UI values
             self.billAmountTextField.text = String(format: "%.2f", roundedBillAmount)
