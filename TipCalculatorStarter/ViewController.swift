@@ -162,6 +162,7 @@ class ViewController: UIViewController {
 
         billAmountTextField.tintColor = theme.accentColor
         tipPercentSegmentedControl.tintColor = theme.accentColor
+        tipPercentSegmentedControl.layer.borderColor = theme.accentColor.cgColor
 
         outputCardView.backgroundColor = theme.primaryColor
         outputCardView.layer.borderColor = theme.accentColor.cgColor
