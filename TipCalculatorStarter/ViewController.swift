@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
-        print("reset button tapped")
+        clear()
     }
     
     // helper function to calculate logic for tip and bill amounts
@@ -62,10 +62,12 @@ class ViewController: UIViewController {
             if self.billAmountTextField.isFirstResponder {
                 self.billAmountTextField.resignFirstResponder()
             }
-            
+        
             // get bill amount from textfield / user input -- execute within closure
             guard let billAmountText = self.billAmountTextField.text,
                 let billAmount = Double(billAmountText) else {
+                    // reset calculator state when input is invalid
+                    self.clear()
                     return
             }
             
@@ -98,5 +100,14 @@ class ViewController: UIViewController {
             self.totalAmountLabel.text = String(format: "%.2f", totalAmount)
         }
     }
+    
+    // helper function to implement reset button
+    func clear() {
+        billAmountTextField.text = nil
+        tipPercentSegmentedControl.selectedSegmentIndex = 0
+        tipAmountLabel.text = "$0.00"
+        totalAmountLabel.text = "$0.00"
+    }
+    
 }
 
