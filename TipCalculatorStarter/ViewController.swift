@@ -10,6 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Properties
+
+    // decide to show default/black or light status bar
+    var isDefaultStatusBar = true
+
+    // override the preferredStatusBarStyle property and use isDefaultStatusBar to set our view controller's status bar style
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isDefaultStatusBar ? .default : .lightContent
+    }
+    
     // Input View
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,6 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        setTheme(isDark: false)
         
         // set calculateButtonAction to billAmountTextField object to a new closure
         billAmountTextField.calculateButtonAction = {
@@ -42,11 +53,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func themeToggled(_ sender: UISwitch) {
-        if sender.isOn {
-            print("switch toggled on")
-        } else {
-            print("switch toggled off")
-        }
+        setTheme(isDark: sender.isOn)
     }
     
     @IBAction func tipPercentChanged(_ sender: UISegmentedControl) {
@@ -144,7 +151,32 @@ class ViewController: UIViewController {
     
     // helper function to contain theme switching code
     func setTheme(isDark: Bool) {
+        let theme = isDark ? ColorTheme.dark : ColorTheme.light
 
+        view.backgroundColor = theme.viewControllerBackgroundColor
+
+        headerView.backgroundColor = theme.primaryColor
+        titleLabel.textColor = theme.primaryTextColor
+
+        inputCardView.backgroundColor = theme.secondaryColor
+
+        billAmountTextField.tintColor = theme.accentColor
+        tipPercentSegmentedControl.tintColor = theme.accentColor
+
+        outputCardView.backgroundColor = theme.primaryColor
+        outputCardView.layer.borderColor = theme.accentColor.cgColor
+
+        tipAmountTitleLabel.textColor = theme.primaryTextColor
+        totalAmountTitleLabel.textColor = theme.primaryTextColor
+
+        tipAmountLabel.textColor = theme.outputTextColor
+        totalAmountLabel.textColor = theme.outputTextColor
+
+        resetButton.backgroundColor = theme.secondaryColor
+        
+        // make sure status bar is updated when theme is toggled
+        isDefaultStatusBar = theme.isDefaultStatusBar
+        setNeedsStatusBarAppearanceUpdate()
     }
     
 }
